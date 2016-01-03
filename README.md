@@ -1,5 +1,7 @@
 # Utils for integrating [BaoBab](https://github.com/Yomguithereal/baobab) with Meteor
 
+[![build status](https://secure.travis-ci.org/hung-phan/baobab-meteor-utils.svg)](http://travis-ci.org/hung-phan/baobab-meteor-utils/)
+
 [![NPM](https://nodei.co/npm/baobab-meteor-utils.png?downloads=true)](https://nodei.co/npm/baobab-meteor-utils/)
 
 ## Example

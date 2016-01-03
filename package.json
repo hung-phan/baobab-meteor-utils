@@ -1,21 +1,21 @@
 {
   "name": "baobab-meteor-utils",
-  "version": "1.0.0",
+  "version": "0.1.1",
   "description": "Baobab utils for Meteor",
   "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib dist",
     "lint": "eslint 'src/**/*.js' 'test/**/*.js'",
     "test": "mocha --compilers js:compiler.js 'test/**/*.spec.js'",
     "test:watch": "npm test -- --watch",
     "check": "npm run lint && npm run test",
-    "build:lib": "babel src --out-dir lib",
+    "build:lib": "babel -d lib src",
     "build:node": "webpack src/index.js dist/baobab-meteor.min.js --config webpack.config.js",
     "build": "npm run build:lib && npm run build:node",
-    "preversion": "npm run clean && npm run check",
+    "prepublish": "npm run clean && npm run build",
     "version": "npm run build"
   },
   "repository": {
