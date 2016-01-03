@@ -2,7 +2,7 @@
   "name": "baobab-meteor-utils",
   "version": "1.0.0",
   "description": "Baobab utils for Meteor",
-  "main": "index.js",
+  "main": "lib/index.js",
   "directories": {
     "test": "test"
   },
@@ -36,6 +36,7 @@
   "homepage": "https://github.com/hung-phan/baobab-meteor-utils#readme",
   "devDependencies": {
     "babel": "^6.3.26",
+    "babel-cli": "^6.3.17",
     "babel-core": "^6.3.26",
     "babel-eslint": "^4.1.6",
     "babel-loader": "^6.2.0",

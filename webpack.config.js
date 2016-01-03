@@ -9,8 +9,11 @@ module.exports = {
     ]
   },
   output: {
-    library: 'BaoBabMeteor',
+    library: 'BaobabMeteor',
     libraryTarget: 'umd'
+  },
+  externals: {
+    tracker: 'Tracker'
   },
   resolve: {
     extensions: ['', '.js']
