@@ -1,5 +1,7 @@
 # Utils for integrating [BaoBab](https://github.com/Yomguithereal/baobab) with Meteor
 
+[![NPM](https://nodei.co/npm/baobab-meteor-utils.png?downloads=true)](https://nodei.co/npm/baobab-meteor-utils/)
+
 ## Example
 
 ```javascript
