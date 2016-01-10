@@ -33,3 +33,10 @@ Meteor.startup(() => {
   autorunBinding(() => window.Meteor.user(), cursor);
 });
 ```
+
+To make this work, add `Tracker` dependency to your webpack build
+
+```
+  externals: {
+    'tracker': 'Tracker'
+```
