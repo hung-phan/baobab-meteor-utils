@@ -11,9 +11,7 @@ module.exports = {
   output: {
     library: 'BaobabMeteor'
   },
-  externals: {
-    tracker: 'Tracker'
-  },
+  externals: {},
   resolve: {
     extensions: ['', '.js']
   },

@@ -1,34 +1,29 @@
 import { assert } from 'chai';
 import sinon from 'sinon';
 import Baobab from 'baobab';
-import requireSubvert from 'require-subvert';
-import requireSubvertHelper from './helpers/require-subvert-helper';
+import autorunBinding from './../src/autorun-binding';
 
 describe('auto-binding.js spec', () => {
-  const fakeRequire = requireSubvert(__dirname);
-  let Tracker;
-  let autorunBinding;
+  let autorunStub;
   let getterStub;
   let branch;
 
   beforeEach(() => {
-    Tracker = { autorun: sinon.spy() };
+    autorunStub = sinon.stub(global.Tracker, 'autorun');
+    autorunStub.returns(true);
+
     getterStub = sinon.stub();
-    getterStub.onCall(0).returns({ data: 'new value' });
+    getterStub.returns({ data: 'new value' });
 
     branch = new Baobab({
       list: []
     });
 
-    autorunBinding = requireSubvertHelper(fakeRequire, {
-      tracker: Tracker
-    }, './../src/autorun-binding').default;
-
     autorunBinding(() => getterStub(), branch.select('list'));
   });
 
   afterEach(() => {
-    fakeRequire.cleanUp();
+    autorunStub.restore();
   });
 
   context('# autorunBinding()', () => {
@@ -46,7 +41,7 @@ describe('auto-binding.js spec', () => {
       let cb;
 
       beforeEach(() => {
-        cb = Tracker.autorun.args[0][0];
+        cb = autorunStub.args[0][0];
         cb();
       });
 

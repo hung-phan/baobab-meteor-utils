@@ -1,5 +1,3 @@
-import Tracker from 'tracker';
-
 /**
  * Binding state to 1 branch of Baobab
  * @param {Function} getter A function that will be called each time the
