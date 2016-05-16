@@ -7,21 +7,20 @@
 ## Example
 
 ```javascript
-const AppState = new Baobab({
-  branch: {
-    list: []
-  }
-});
-
-let cursor = AppState.select('branch');
-```
-
-```javascript
 import Meteor from 'meteor';
 import { cursorListener } from 'baobab-meteor-utils';
 
 Meteor.startup(() => {
-  cursorListener(window.Users.find(), cursor.select('list'));
+  cursorListener(window.Users.find(), cursor);
+});
+```
+
+```javascript
+import Meteor from 'meteor';
+import { cursorObjectListener } from 'baobab-meteor-utils';
+
+Meteor.startup(() => {
+  cursorObjectListener(() => window.Meteor.user(), cursor);
 });
 ```
 
@@ -32,11 +31,4 @@ import { autorunBinding } from 'baobab-meteor-utils';
 Meteor.startup(() => {
   autorunBinding(() => window.Meteor.user(), cursor);
 });
-```
-
-To make this work, add `Tracker` dependency to your webpack build
-
-```
-  externals: {
-    'tracker': 'Tracker'
 ```
